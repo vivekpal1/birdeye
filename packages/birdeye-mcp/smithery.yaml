@@ -1,0 +1,38 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required: ["birdeyeApiKey"]
+    properties:
+      birdeyeApiKey:
+        type: string
+        description: "Your Birdeye Data API key. Get one at https://bds.birdeye.so/"
+        format: password
+      defaultChain:
+        type: string
+        default: "solana"
+        description: "Default chain for token queries when not specified by the model."
+        enum:
+          - solana
+          - ethereum
+          - arbitrum
+          - avalanche
+          - bsc
+          - optimism
+          - polygon
+          - base
+          - zksync
+          - sui
+          - monad
+          - megaeth
+          - fogo
+          - aptos
+  commandFunction: |
+    (config) => ({
+      command: "node",
+      args: ["dist/index.js"],
+      env: {
+        BIRDEYE_API_KEY: config.birdeyeApiKey,
+        BIRDEYE_DEFAULT_CHAIN: config.defaultChain || "solana"
+      }
+    })

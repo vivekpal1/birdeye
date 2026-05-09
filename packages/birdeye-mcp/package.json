@@ -1,0 +1,62 @@
+{
+  "name": "@vivekpal1/birdeye-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol server for Birdeye Data — onchain token, holder, security, and trending intelligence across 14 chains. Give Claude eyes on Solana.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "birdeye-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./client": {
+      "import": "./dist/client.js",
+      "types": "./dist/client.d.ts"
+    },
+    "./tools": {
+      "import": "./dist/tools/index.js",
+      "types": "./dist/tools/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "tsc"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "birdeye",
+    "solana",
+    "ethereum",
+    "defi",
+    "onchain",
+    "ai-agent",
+    "claude"
+  ],
+  "author": "vivekpal1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vivekpal1/birdeye-mcp"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

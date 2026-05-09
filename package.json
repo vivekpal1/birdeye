@@ -1,0 +1,20 @@
+{
+  "name": "wingman-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wingman + Birdeye MCP — give Claude eyes on Solana",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev:web": "pnpm --filter wingman dev",
+    "dev:mcp": "pnpm --filter @vivekpal1/birdeye-mcp dev",
+    "build:mcp": "pnpm --filter @vivekpal1/birdeye-mcp build"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=20"
+  }
+}
